@@ -1,4 +1,5 @@
-﻿using AI102.Application.Interfaces;
+﻿using AI102.Application.Features;
+using AI102.Application.Interfaces;
 using AI102.Infrastructure.Configurations;
 using AI102.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,7 @@ public static class DependencyInjection
         services.Configure<AzureAIOptions>(configuration.GetSection("AzureAI"));
 
         services.AddScoped<IVisionService, VisionService>();
+        services.AddScoped<ILanguageService, LanguageService>();
 
         return services;
     }
