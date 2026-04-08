@@ -1,13 +1,15 @@
-﻿
-## This module demonstrates how to integrate **Azure AI Language Service** into a **.NET 8 Web API** using a clean layered architecture.
-
-### Project Architecture Used
+﻿### Project Architecture Used
 This module follows the same reusable architecture used across the AI-102 portfolio solution:
 
 - **AI102.Api** → Controllers / API endpoints
 - **AI102.Application** → Interfaces and DTOs
 - **AI102.Infrastructure** → Azure SDK service implementation
 - **AI102.Shared** → Common API response models and exception handling
+
+## Modules Completed
+- Module 1 - Foundation
+- Module 3 - Computer Vision
+- Module 5 - Language Service
 
 ## Module Status
 
