@@ -5,15 +5,13 @@ This repository demonstrates a complete hands-on implementation of **Microsoft A
 The goal of this project is to:
 
 * Build real-world AI-powered APIs
-* Use the same codebase for AI Handson Labs
+* Create a strong developer portfolio
 
 ---
 
 # 🧱 Architecture Overview
 
-This solution follows a clean layered architecture:
-
-```
+```text
 AI102.Api            → Controllers / API Layer
 AI102.Application    → Interfaces + DTOs
 AI102.Infrastructure → Azure SDK Implementations
@@ -29,6 +27,7 @@ AI102.Shared         → Common Responses / Middleware
 * Azure AI Vision
 * Azure AI Language
 * Azure AI Document Intelligence
+* Azure AI Speech
 * Swagger (API Testing)
 * Clean Architecture Pattern
 
@@ -40,6 +39,7 @@ AI102.Shared         → Common Responses / Middleware
 * ✅ Module 3 - Azure AI Vision
 * ✅ Module 5 - Azure AI Language
 * ✅ Module 4 - Azure AI Document Intelligence
+* ✅ Module 7 - Azure AI Speech
 
 ---
 
@@ -67,8 +67,6 @@ GET /api/health
 
 Azure AI Vision is used to analyze images and extract meaningful insights such as captions, tags, text, and objects.
 
----
-
 ## Features Implemented
 
 * Image Captioning
@@ -76,8 +74,6 @@ Azure AI Vision is used to analyze images and extract meaningful insights such a
 * OCR (Read Text from Image)
 * Object Detection
 * Dense Captions
-
----
 
 ## API Endpoints
 
@@ -88,15 +84,11 @@ POST /api/vision/detect-objects
 POST /api/vision/dense-captions
 ```
 
----
-
 ## Sample Request
 
 ```http
 POST /api/vision/analyze?imageUrl=https://images.unsplash.com/photo-1517841905240-472988babdf9
 ```
-
----
 
 ## Sample Response
 
@@ -111,14 +103,11 @@ POST /api/vision/analyze?imageUrl=https://images.unsplash.com/photo-151784190524
 }
 ```
 
----
-
 ## Learning Outcomes
 
 * Image understanding using AI
 * OCR implementation
 * Object detection concepts
-* Working with Azure Vision SDK
 
 ---
 
@@ -128,16 +117,12 @@ POST /api/vision/analyze?imageUrl=https://images.unsplash.com/photo-151784190524
 
 Azure AI Language is used to analyze and extract insights from text.
 
----
-
 ## Features Implemented
 
 * Sentiment Analysis
 * Named Entity Recognition (NER)
 * PII Detection
 * Key Phrase Extraction
-
----
 
 ## API Endpoints
 
@@ -148,8 +133,6 @@ POST /api/language/pii
 POST /api/language/keyphrases
 ```
 
----
-
 ## Sample Request
 
 ```json
@@ -158,8 +141,6 @@ POST /api/language/keyphrases
   "language": "en"
 }
 ```
-
----
 
 ## Sample Response
 
@@ -173,12 +154,9 @@ POST /api/language/keyphrases
 }
 ```
 
----
-
 ## Learning Outcomes
 
 * Natural Language Processing (NLP)
-* Sentiment detection
 * Entity recognition
 * Sensitive data detection (PII)
 
@@ -190,16 +168,12 @@ POST /api/language/keyphrases
 
 Azure Document Intelligence extracts structured data from documents like invoices, receipts, and ID cards.
 
----
-
 ## Features Implemented
 
 * Document OCR (Read Text)
 * Invoice Data Extraction
 * Receipt Data Extraction
 * ID Card Analysis
-
----
 
 ## API Endpoints
 
@@ -210,15 +184,11 @@ POST /api/document/receipt
 POST /api/document/id-card
 ```
 
----
-
 ## Sample Request
 
 ```http
 POST /api/document/invoice?fileUrl=https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
 ```
-
----
 
 ## Sample Response
 
@@ -234,14 +204,72 @@ POST /api/document/invoice?fileUrl=https://raw.githubusercontent.com/Azure-Sampl
 }
 ```
 
----
-
 ## Learning Outcomes
 
 * Structured document processing
 * Extracting key-value pairs
-* Working with prebuilt AI models
-* Real-world enterprise AI use cases
+* Real-world enterprise automation
+
+---
+
+# 🔹 Module 7 - Azure AI Speech
+
+## Overview
+
+Azure AI Speech enables applications to convert speech into text and generate speech from text.
+
+## Features Implemented
+
+* Speech to Text (Audio → Text)
+* Text to Speech (Text → Audio)
+
+## API Endpoints
+
+```http
+POST /api/speech/speech-to-text
+POST /api/speech/text-to-speech
+```
+
+## Speech to Text
+
+### Request
+
+* Upload `.wav` audio file via Swagger
+
+### Response
+
+```json
+{
+  "success": true,
+  "message": "Speech converted to text",
+  "data": {
+    "text": "Hello this is a speech demo"
+  }
+}
+```
+
+---
+
+## Text to Speech
+
+### Request
+
+```http
+POST /api/speech/text-to-speech?text=Hello this is AI demo
+```
+
+### Response
+
+* Returns downloadable audio file (`.wav`)
+
+---
+
+## Learning Outcomes
+
+* Audio processing using AI
+* Speech recognition
+* Voice generation
+* Real-time voice applications
 
 ---
 
@@ -289,7 +317,7 @@ dotnet run
 
 Open Swagger:
 
-```
+```text
 https://localhost:<port>/swagger
 ```
 
@@ -297,9 +325,10 @@ https://localhost:<port>/swagger
 
 # 📈 Future Enhancements
 
-* 🔜 Module 7 - Azure AI Speech
 * 🔜 Module 8 - Azure OpenAI
 * 🔜 Module 9 - Azure AI Search (RAG)
+* 🔜 Speech Translation
+* 🔜 Voice customization
 
 ---
 
@@ -310,12 +339,11 @@ This project is built to:
 * Strengthen Azure AI development skills
 * Prepare for AI-102 certification
 * Demonstrate real-world API implementations
-* Serve as a teaching reference for others
 
 ---
 
 # 👨‍💻 Author
 
-Asim Kumar - Azure AI Enthusiast | Tech Lead
+Asim Kumar - Azure AI Enthusiast | Tech Lead 
 
 ---

@@ -16,6 +16,7 @@ public static class DependencyInjection
         services.AddScoped<IVisionService, VisionService>();
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<IDocumentService, DocumentService>();
+        services.AddScoped<ISpeechService, SpeechService>();
 
         return services;
     }
