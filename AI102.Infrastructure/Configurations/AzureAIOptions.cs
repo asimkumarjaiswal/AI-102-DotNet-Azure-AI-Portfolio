@@ -10,5 +10,9 @@ namespace AI102.Infrastructure.Configurations
     {
         public string Endpoint { get; set; } = string.Empty;
         public string Key { get; set; } = string.Empty;
+
+        public string OpenAIEndpoint { get; set; } = string.Empty;
+        public string OpenAIKey { get; set; } = string.Empty;
+        public string DeploymentName { get; set; } = "gpt-4o-mini";
     }
 }

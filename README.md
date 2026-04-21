@@ -5,17 +5,18 @@ This repository demonstrates a complete hands-on implementation of **Microsoft A
 The goal of this project is to:
 
 * Build real-world AI-powered APIs
-* Create a strong developer portfolio
+* Practice Azure AI-102 concepts through code
+* Use the same codebase for Practice and learning
 
 ---
 
 # 🧱 Architecture Overview
 
-```text
-AI102.Api            → Controllers / API Layer
-AI102.Application    → Interfaces + DTOs
-AI102.Infrastructure → Azure SDK Implementations
-AI102.Shared         → Common Responses / Middleware
+```text id="arch01"
+AI102.Api            → Controllers / API Layer  
+AI102.Application    → Interfaces + DTOs  
+AI102.Infrastructure → Azure SDK Implementations  
+AI102.Shared         → Common Responses / Middleware  
 ```
 
 ---
@@ -23,11 +24,11 @@ AI102.Shared         → Common Responses / Middleware
 # ⚙️ Tech Stack
 
 * .NET 8 Web API
-* Azure AI Services
 * Azure AI Vision
 * Azure AI Language
 * Azure AI Document Intelligence
 * Azure AI Speech
+* Azure OpenAI (LLM)
 * Swagger (API Testing)
 * Clean Architecture Pattern
 
@@ -40,6 +41,7 @@ AI102.Shared         → Common Responses / Middleware
 * ✅ Module 5 - Azure AI Language
 * ✅ Module 4 - Azure AI Document Intelligence
 * ✅ Module 7 - Azure AI Speech
+* ✅ Module 8 - Azure OpenAI
 
 ---
 
@@ -55,160 +57,91 @@ AI102.Shared         → Common Responses / Middleware
 
 ## Endpoint
 
-```http
+```http id="ep01"
 GET /api/health
 ```
 
 ---
 
-# 🔹 Module 3 - Azure AI Vision (Image Analysis)
+# 🔹 Module 3 - Azure AI Vision
 
 ## Overview
 
-Azure AI Vision is used to analyze images and extract meaningful insights such as captions, tags, text, and objects.
+Analyze images and extract insights such as captions, tags, text, and objects.
 
-## Features Implemented
+## Features
 
 * Image Captioning
 * Tag Extraction
-* OCR (Read Text from Image)
+* OCR (Read Text)
 * Object Detection
 * Dense Captions
 
-## API Endpoints
+## Endpoints
 
-```http
-POST /api/vision/analyze
-POST /api/vision/read-text
-POST /api/vision/detect-objects
-POST /api/vision/dense-captions
-```
-
-## Sample Request
-
-```http
-POST /api/vision/analyze?imageUrl=https://images.unsplash.com/photo-1517841905240-472988babdf9
+```http id="ep02"
+POST /api/vision/analyze  
+POST /api/vision/read-text  
+POST /api/vision/detect-objects  
+POST /api/vision/dense-captions  
 ```
 
 ## Sample Response
 
-```json
+```json id="res01"
 {
-  "success": true,
-  "message": "Image analyzed successfully",
-  "data": {
-    "caption": "a dog sitting on grass",
-    "tags": ["dog", "grass", "animal"]
-  }
+  "caption": "a dog sitting on grass",
+  "tags": ["dog", "grass"]
 }
 ```
 
-## Learning Outcomes
-
-* Image understanding using AI
-* OCR implementation
-* Object detection concepts
-
 ---
 
-# 🔹 Module 5 - Azure AI Language Service
+# 🔹 Module 5 - Azure AI Language
 
 ## Overview
 
-Azure AI Language is used to analyze and extract insights from text.
+Analyze and extract intelligence from text.
 
-## Features Implemented
+## Features
 
 * Sentiment Analysis
-* Named Entity Recognition (NER)
+* Named Entity Recognition
 * PII Detection
 * Key Phrase Extraction
 
-## API Endpoints
+## Endpoints
 
-```http
-POST /api/language/sentiment
-POST /api/language/entities
-POST /api/language/pii
-POST /api/language/keyphrases
+```http id="ep03"
+POST /api/language/sentiment  
+POST /api/language/entities  
+POST /api/language/pii  
+POST /api/language/keyphrases  
 ```
-
-## Sample Request
-
-```json
-{
-  "text": "The product is amazing and the support team was very helpful.",
-  "language": "en"
-}
-```
-
-## Sample Response
-
-```json
-{
-  "success": true,
-  "message": "Sentiment analyzed successfully",
-  "data": {
-    "sentiment": "Positive"
-  }
-}
-```
-
-## Learning Outcomes
-
-* Natural Language Processing (NLP)
-* Entity recognition
-* Sensitive data detection (PII)
 
 ---
 
-# 🔹 Module 4 - Azure AI Document Intelligence
+# 🔹 Module 4 - Document Intelligence
 
 ## Overview
 
-Azure Document Intelligence extracts structured data from documents like invoices, receipts, and ID cards.
+Extract structured data from documents.
 
-## Features Implemented
+## Features
 
-* Document OCR (Read Text)
-* Invoice Data Extraction
-* Receipt Data Extraction
-* ID Card Analysis
+* OCR (Read)
+* Invoice Analysis
+* Receipt Analysis
+* ID Card Extraction
 
-## API Endpoints
+## Endpoints
 
-```http
-POST /api/document/read
-POST /api/document/invoice
-POST /api/document/receipt
-POST /api/document/id-card
+```http id="ep04"
+POST /api/document/read  
+POST /api/document/invoice  
+POST /api/document/receipt  
+POST /api/document/id-card  
 ```
-
-## Sample Request
-
-```http
-POST /api/document/invoice?fileUrl=https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
-```
-
-## Sample Response
-
-```json
-{
-  "success": true,
-  "message": "Invoice analyzed successfully",
-  "data": {
-    "vendorName": "Contoso Ltd.",
-    "invoiceId": "12345",
-    "totalAmount": 1000.0
-  }
-}
-```
-
-## Learning Outcomes
-
-* Structured document processing
-* Extracting key-value pairs
-* Real-world enterprise automation
 
 ---
 
@@ -216,108 +149,124 @@ POST /api/document/invoice?fileUrl=https://raw.githubusercontent.com/Azure-Sampl
 
 ## Overview
 
-Azure AI Speech enables applications to convert speech into text and generate speech from text.
+Convert speech ↔ text using AI.
 
-## Features Implemented
+## Features
 
-* Speech to Text (Audio → Text)
-* Text to Speech (Text → Audio)
+* Speech to Text
+* Text to Speech
 
-## API Endpoints
+## Endpoints
 
-```http
-POST /api/speech/speech-to-text
-POST /api/speech/text-to-speech
+```http id="ep05"
+POST /api/speech/speech-to-text  
+POST /api/speech/text-to-speech  
 ```
 
-## Speech to Text
+---
 
-### Request
+# 🔹 Module 8 - Azure OpenAI (GenAI)
 
-* Upload `.wav` audio file via Swagger
+## Overview
 
-### Response
+Leverage Large Language Models (LLMs) for intelligent text generation and transformation.
 
-```json
+## Features
+
+* Chat Completion
+* Text Summarization
+* Key Information Extraction
+* Text Rewriting
+
+---
+
+## Endpoints
+
+```http id="ep06"
+POST /api/openai/chat  
+POST /api/openai/summarize  
+POST /api/openai/extract  
+POST /api/openai/rewrite  
+```
+
+---
+
+## Sample Request
+
+```json id="req02"
 {
-  "success": true,
-  "message": "Speech converted to text",
-  "data": {
-    "text": "Hello this is a speech demo"
-  }
+  "prompt": "Explain Azure AI in simple terms"
 }
 ```
 
 ---
 
-## Text to Speech
+## Sample Response
 
-### Request
-
-```http
-POST /api/speech/text-to-speech?text=Hello this is AI demo
+```json id="res02"
+{
+  "response": "Azure AI is a collection of cloud-based services..."
+}
 ```
-
-### Response
-
-* Returns downloadable audio file (`.wav`)
 
 ---
 
 ## Learning Outcomes
 
-* Audio processing using AI
-* Speech recognition
-* Voice generation
-* Real-time voice applications
+* Prompt engineering basics
+* LLM integration in .NET
+* Real-world GenAI use cases
+* API-based AI architecture
 
 ---
 
 # 🔐 Configuration
 
-## Important
+⚠️ Do NOT commit Azure keys.
 
-Do NOT commit Azure keys in public repositories.
+## appsettings.json
 
----
-
-## appsettings.json (Safe)
-
-```json
+```json id="cfg01"
 {
   "AzureAI": {
     "Endpoint": "",
-    "Key": ""
+    "Key": "",
+    "OpenAIEndpoint": "",
+    "OpenAIKey": "",
+    "DeploymentName": "gpt-4o-mini"
   }
 }
 ```
 
 ---
 
-## appsettings.Development.json (Local Only)
+## appsettings.Development.json
 
-```json
+```json id="cfg02"
 {
   "AzureAI": {
     "Endpoint": "YOUR-ENDPOINT",
-    "Key": "YOUR-KEY"
+    "Key": "YOUR-KEY",
+    "OpenAIEndpoint": "YOUR-OPENAI-ENDPOINT",
+    "OpenAIKey": "YOUR-OPENAI-KEY",
+    "DeploymentName": "gpt-4o-mini"
   }
 }
 ```
 
 ---
 
-# ▶️ Running the Project
+# ▶️ Run the Project
 
-```bash
-dotnet restore
-dotnet build
-dotnet run
+```bash id="run01"
+dotnet restore  
+dotnet build  
+dotnet run  
 ```
 
-Open Swagger:
+Swagger:
 
-```text
+```text id="run02"
 https://localhost:<port>/swagger
 ```
 
@@ -325,25 +274,20 @@ https://localhost:<port>/swagger
 
 # 📈 Future Enhancements
 
-* 🔜 Module 8 - Azure OpenAI
-* 🔜 Module 9 - Azure AI Search (RAG)
-* 🔜 Speech Translation
-* 🔜 Voice customization
+* 🔜 Module 9 — RAG (Azure AI Search + OpenAI)
 
 ---
 
-# 🎯 Purpose of This Repository
+# 🎯 Purpose
 
-This project is built to:
-
-* Strengthen Azure AI development skills
-* Prepare for AI-102 certification
-* Demonstrate real-world API implementations
+* Azure AI-102 preparation
+* Real-world backend AI development
+* Practice & learning
 
 ---
 
 # 👨‍💻 Author
 
-Asim Kumar - Azure AI Enthusiast | Tech Lead 
+Asim Kumar - Azure AI Enthusiast | Tech Lead
 
 ---

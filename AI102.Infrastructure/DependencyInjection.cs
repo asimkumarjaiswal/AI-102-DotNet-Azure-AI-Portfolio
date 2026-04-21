@@ -17,6 +17,7 @@ public static class DependencyInjection
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<IDocumentService, DocumentService>();
         services.AddScoped<ISpeechService, SpeechService>();
+        services.AddScoped<IOpenAIService, OpenAIService>();
 
         return services;
     }
